@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/mxro/file-api.svg?branch=master)](https://travis-ci.org/mxro/file-api)
 
-# File API
+# delight-files
 
-The [File API](https://github.com/mxro/file-api) library provides an abstract, cross-platform API for working with files and folders.
+This library provides an abstract, cross-platform API for working with files and folders.
 
 **Why** This is a very lightweight abstraction on top of vanilla java.io.File. 
 Adding this project as a dependency to your projects should come with very little risk.
