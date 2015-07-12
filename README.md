@@ -41,28 +41,7 @@ boolean there = file.get("tmp").get("my file.txt").exists();
 
 For more operations check the JavaDoc of [FileItem](http://modules.appjangle.com/file-api/latest/apidocs/de/mxro/file/FileItem.html).
 
-## Maven Dependency
 
-```xml
-<dependency>
-    <groupId>de.mxro.file</groupId>
-	<artifactId>file-api</artifactId>
-	<version>[latest version]</version>
-</dependency>
-```
-
-Find latest version [here](http://modules.appjangle.com/file-api/latest/project-summary.html).
-
-Add repository if required:
-
-```xml
-<repositories>
-	<repository>
-		<id>Appjangle Releases</id>
-		<url>http://maven.appjangle.com/appjangle/releases</url>
-	</repository>
-</repositories>
-```
 
 ## Compatibility
 
@@ -75,10 +54,9 @@ This project is compatible with the following environments:
 
 ## Further Resources
 
-- [JavaDocs](http://modules.appjangle.com/file-api/latest/apidocs/)
-- [Project Reports](http://modules.appjangle.com/file-api/latest/project-reports.html)
-- [Documentation with TOC](http://documentup.com/mxro/file-api)
-- [ReadTheDocs](http://file-api.readthedocs.org/en/latest/)
+- [JavaDocs](http://modules.appjangle.com/delight-files/latest/apidocs/)
+- [Project Reports](http://modules.appjangle.com/delight-files/latest/project-reports.html)
+
 
 
     
