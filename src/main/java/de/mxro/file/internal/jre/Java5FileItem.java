@@ -287,7 +287,7 @@ public class Java5FileItem implements FileItem {
                 stream.close();
             }
         } catch (final Exception e) {
-
+            throw new RuntimeException(e);
         }
 
         return this;
