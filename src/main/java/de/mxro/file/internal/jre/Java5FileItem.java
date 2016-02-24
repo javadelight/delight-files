@@ -277,12 +277,19 @@ public class Java5FileItem implements FileItem {
 
     @Override
     public FileItem setData(final byte[] data) {
-        final FileOutputStream stream = new FileOutputStream(this.file);
+        FileOutputStream stream;
         try {
-            stream.write(data);
-        } finally {
-            stream.close();
+            stream = new FileOutputStream(this.file);
+
+            try {
+                stream.write(data);
+            } finally {
+                stream.close();
+            }
+        } catch (final Exception e) {
+
         }
+
         return this;
     }
 
