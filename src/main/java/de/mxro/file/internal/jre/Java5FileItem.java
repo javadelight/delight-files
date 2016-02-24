@@ -1,6 +1,7 @@
 package de.mxro.file.internal.jre;
 
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -269,10 +270,45 @@ public class Java5FileItem implements FileItem {
         return this;
     }
 
+    public byte[] read(final File file) throws IOException {
+
+        ByteArrayOutputStream ous = null;
+        InputStream ios = null;
+        try {
+            final byte[] buffer = new byte[4096];
+            ous = new ByteArrayOutputStream();
+            ios = new FileInputStream(file);
+            int read = 0;
+            while ((read = ios.read(buffer)) != -1) {
+                ous.write(buffer, 0, read);
+            }
+        } finally {
+            try {
+                if (ous != null) {
+                    ous.close();
+                }
+            } catch (final IOException e) {
+            }
+
+            try {
+                if (ios != null) {
+                    ios.close();
+                }
+            } catch (final IOException e) {
+            }
+        }
+        return ous.toByteArray();
+    }
+
     @Override
     public byte[] getData() {
-        // TODO Auto-generated method stub
-        return null;
+
+        try {
+
+        } catch (final Exception e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override
