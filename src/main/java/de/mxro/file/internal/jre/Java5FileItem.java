@@ -270,6 +270,23 @@ public class Java5FileItem implements FileItem {
     }
 
     @Override
+    public byte[] getData() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public FileItem setData(final byte[] data) {
+        final FileOutputStream stream = new FileOutputStream(this.file);
+        try {
+            stream.write(data);
+        } finally {
+            stream.close();
+        }
+        return this;
+    }
+
+    @Override
     public boolean contains(final String fileName) {
         if (!isDirectory()) {
             throw new RuntimeException(".contains can only be used on folders and not [" + file + "].");
