@@ -135,4 +135,14 @@ public class NotExistentFileItem implements FileItem {
         throw new RuntimeException(ILLEGAL_ACCESS);
     }
 
+    @Override
+    public byte[] getData() {
+        throw new RuntimeException(ILLEGAL_ACCESS);
+    }
+
+    @Override
+    public FileItem setData(final byte[] data) {
+        throw new RuntimeException(ILLEGAL_OPERATION);
+    }
+
 }

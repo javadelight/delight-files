@@ -234,6 +234,10 @@ public interface FileItem {
      */
     public FileItem setText(String text);
 
+    public byte[] getData();
+
+    public FileItem setData(byte[] data);
+
     /**
      * Returns true if this is a folder which contains a file with the specified
      * name.
