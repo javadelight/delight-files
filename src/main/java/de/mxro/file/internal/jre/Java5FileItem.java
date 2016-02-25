@@ -270,7 +270,7 @@ public class Java5FileItem implements FileItem {
         return this;
     }
 
-    public byte[] read(final File file) throws IOException {
+    public byte[] readBytes(final File file) throws IOException {
 
         ByteArrayOutputStream ous = null;
         InputStream ios = null;
@@ -304,7 +304,7 @@ public class Java5FileItem implements FileItem {
     public byte[] getData() {
 
         try {
-
+            return readBytes(this.file);
         } catch (final Exception e) {
             throw new RuntimeException(e);
         }
