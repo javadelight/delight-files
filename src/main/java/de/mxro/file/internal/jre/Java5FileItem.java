@@ -464,7 +464,18 @@ public class Java5FileItem implements FileItem {
     @Override
     public FileItem copyTo(final FileItem destination) {
         if (this.isDirectory()) {
-            throw new IllegalStateException("Not supported for directories yet.");
+            if (!destination.isDirectory()) {
+                throw new RuntimeException("Directories can only be copied into other directories.");
+            }
+            for (final FileItem child : this.getChildren()) {
+                if (child.isDirectory()) {
+                    final FileItem targetFolder = destination.assertFolder(child.getName());
+                    child.copyTo(targetFolder);
+                } else {
+                    child.copyTo(destination);
+                }
+            }
+            return destination;
         }
         FileItem destFile;
         if (destination.isDirectory()) {
@@ -529,6 +540,7 @@ public class Java5FileItem implements FileItem {
         FileChannel input = null;
         FileChannel output = null;
         try {
+
             fis = new FileInputStream(srcFile);
             fos = new FileOutputStream(destFile);
             input = fis.getChannel();
@@ -547,10 +559,18 @@ public class Java5FileItem implements FileItem {
                 pos += bytesCopied;
             }
         } finally {
-            output.close();
-            fos.close();
-            input.close();
-            fis.close();
+            if (output != null) {
+                output.close();
+            }
+            if (fos != null) {
+                fos.close();
+            }
+            if (input != null) {
+                input.close();
+            }
+            if (fis != null) {
+                fis.close();
+            }
 
         }
 

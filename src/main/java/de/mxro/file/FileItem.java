@@ -7,8 +7,8 @@ import java.util.List;
  * <p>
  * An interface for interacting with files and folder.
  * <p>
- * For usage examples the
- * <a href='https://github.com/mxro/file-api'>project page</a>
+ * For usage examples the <a href='https://github.com/mxro/file-api'>project
+ * page</a>
  * 
  * @author <a href="http://www.mxro.de">Max Rohde</a>
  *
@@ -166,6 +166,9 @@ public interface FileItem {
      * <p>
      * If destination is a file, override specified file with the contents of
      * this FileItem.
+     * <p>
+     * If this file item is a folder, all children of this file item will be
+     * copied to the destination. The destination must be a folder then.
      * <p>
      * If file exists, it will be overwritten.
      * 
