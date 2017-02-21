@@ -2,7 +2,6 @@ package de.mxro.file.tests;
 
 import de.mxro.file.FileItem;
 import de.mxro.file.Jre.FilesJre;
-import java.io.File;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.junit.Assert;
 import org.junit.Rule;
@@ -18,15 +17,12 @@ public class TestUnicode {
   public void test() {
     try {
       {
-        File _newFile = this.folder.newFile("test.txt");
-        final FileItem file = FilesJre.wrap(_newFile);
+        final FileItem file = FilesJre.wrap(this.folder.newFile("test.txt"));
         file.setText("this and that and …");
       }
       {
-        File _newFile = this.folder.newFile("test.txt");
-        final FileItem file = FilesJre.wrap(_newFile);
-        String _text = file.getText();
-        Assert.assertEquals("this and that and …", _text);
+        final FileItem file = FilesJre.wrap(this.folder.newFile("test.txt"));
+        Assert.assertEquals("this and that and …", file.getText());
       }
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
