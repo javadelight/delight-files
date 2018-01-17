@@ -16,7 +16,6 @@ import java.util.List;
 import de.mxro.file.FileItem;
 import de.mxro.file.internal.NotExistentFileItem;
 import de.mxro.process.Spawn;
-import delight.strings.UriUtils;
 
 public class Java5FileItem implements FileItem {
 
